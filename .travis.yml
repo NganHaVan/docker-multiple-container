@@ -10,14 +10,14 @@ script:
   - docker run -e CI=true havan/multi-container-docker-test npm run test -- --coverage
 
 after_success:
-  - docker build -t havan/multi-container-client ./client
-  - docker build -t havan/multi-container-nginx ./nginx
-  - docker build -t havan/multi-container-server ./server
-  - docker build -t havan/multi-container-worker ./worker
+  - docker build -t havan7135/multi-container-client ./client
+  - docker build -t havan7135/multi-container-nginx ./nginx
+  - docker build -t havan7135/multi-container-server ./server
+  - docker build -t havan7135/multi-container-worker ./worker
   # Login Docker hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push images to docker hub
-  - docker push havan/multi-container-client
-  - docker push havan/multi-container-nginx
-  - docker push havan/multi-container-server
-  - docker push havan/multi-container-worker
+  - docker push havan7135/multi-container-client
+  - docker push havan7135/multi-container-nginx
+  - docker push havan7135/multi-container-server
+  - docker push havan7135/multi-container-worker
